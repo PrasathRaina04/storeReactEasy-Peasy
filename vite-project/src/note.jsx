@@ -6,10 +6,7 @@ const Note = () => {
 
   const count = useStoreState((state)=>state.count);
   const addCount=useStoreActions((actions)=>actions.addCount);
-const subCount=useStoreActions((actions)=>actions.subCount);
-    // const removeNote = useStoreActions(actions => actions.removeNote);
-    const removeNote= useStoreActions( action=> action.removeNote);
-    const toggleNote = useStoreActions(actions => actions.toggleNote);
+  const subCount=useStoreActions((actions)=>actions.subCount);
     return (
       <div>
      <h1>Count : {count}</h1>
