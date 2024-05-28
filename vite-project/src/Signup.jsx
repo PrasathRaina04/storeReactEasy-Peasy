@@ -1,8 +1,49 @@
-
-
+import { useState } from "react"
+import { useStoreState, useStoreActions } from 'easy-peasy';
 export function Signup()
 {
-   
+    const {loginInfo} = useStoreState((state)=>state.signUpModel);
+    const {setLoginInfo}= useStoreActions((actions)=> actions.signUpModel)
+    const [isFormSubmitted,setIsFormSubmitted] =useState(false);
+    const[createId, setCreateId]=useState(
+        {
+            fName:"",
+            lName:"",
+            mNumber:"",
+            emailId:"",
+            address:"",
+            pincode:"",
+        }
+    )
+   function handleInput(inputType, e)
+   {
+    switch(inputType)
+    {
+        case"fName":
+        setCreateId({...createId,fName: e.target.value})
+        break;
+        case"lName":
+        setCreateId({...createId,lName: e.target.value})
+        break;
+        case"mNumber":
+        setCreateId({...createId,mNumber: e.target.value})
+        break;
+        case"emailId":
+        setCreateId({...createId,emailId: e.target.value})
+        break;
+        case"address":
+        setCreateId({...createId,address: e.target.value})
+        break;
+        case"pincode":
+        setCreateId({...createId,pincode: e.target.value})
+        break;
+    }
+   }
+   function handleSignup()
+   {
+    setLoginInfo(createId);
+    setIsFormSubmitted(true);
+   }
     return(
         <>
        <form className="font-monospace" style={{ margin:"5rem", }}>
@@ -22,7 +63,9 @@ export function Signup()
             <div className="col-4"><button onClick={()=>handleSignup()}  className="btn btn-primary d-block w-100" type="button">Sign Up</button></div>
         </div>
         </form>
- 
+
+{isFormSubmitted && <h1>{JSON.stringify(loginInfo)}</h1> }
+
         </>
     )
 }
