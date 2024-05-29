@@ -13,6 +13,7 @@ export function Signup(props)
             emailId:"",
             address:"",
             pincode:"",
+            password:"",
         }
     )
    function handleInput(inputType, e)
@@ -37,6 +38,9 @@ export function Signup(props)
         case"pincode":
         setCreateId({...createId,pincode: e.target.value})
         break;
+        case"password":
+        setCreateId({...createId,password: e.target.value})
+        break;
     }
    }
    function handleSignup()
@@ -59,6 +63,7 @@ export function Signup(props)
         </div>
         <div className="row justify-content-center">
             <div className="col-4 mt-4"><label className="form-label">Pincode</label><input onChange={(e)=>handleInput("pincode", e)} className="form-control" type="number" /></div>
+            <div className="col"><label className="form-label">Password</label><input onChange={(e)=>handleInput("password", e)} className="form-control" type="password" /></div>
         </div>
         <div className="row text-center justify-content-center mt-4">
             <div className="col-4"><button onClick={()=>handleSignup()}  className="btn btn-primary d-block w-100" type="button">Sign Up</button></div>

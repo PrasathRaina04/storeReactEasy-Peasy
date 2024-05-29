@@ -2,11 +2,12 @@ import { useState } from "react";
 import { Signup } from "./Signup";
 
 import { useStoreState } from 'easy-peasy';
+import { useNavigate } from "react-router-dom";
 function Login() {
   const [userId, setUserId] = useState({});
   const [showSignUp, setShowSignUp] = useState(false);
   const {loginInfo} = useStoreState((state)=>state.signUpModel);
-
+const navigate = useNavigate()
   function handleInput(inputType, e) {
     switch (inputType) {
       case "emailId":
@@ -19,8 +20,8 @@ function Login() {
   }
   function handleLogin(){
 
-if((loginInfo.emailId === userId.emailId)){
-    alert("login success");
+if((loginInfo.emailId === userId.emailId) && (loginInfo.password === userId.password)){
+    navigate("/product")
 }
   }
   return (

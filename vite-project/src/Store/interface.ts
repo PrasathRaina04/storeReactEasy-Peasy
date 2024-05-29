@@ -31,4 +31,5 @@ export interface SignUp{
             emailId?:string,
             address?:string,
             pincode?:number,
+            password?:string,
 }
