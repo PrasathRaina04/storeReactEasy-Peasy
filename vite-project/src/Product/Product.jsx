@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-
+import { useStoreState, useStoreActions } from 'easy-peasy';
 // import { ProductModel } from "./Components/productModel.component";
 
 
 // import { CreateProduct } from "./CreateProduct.page";
 
 export function Product() {
+    const {productDetailes} = useStoreState((state)=>state.ProductListsModel);
+    const {setProductDetailes}= useStoreActions((actions)=> actions.ProductListsModel)
     const [productList, setProductList] = useState([])
 //     // const [responseStatus, setResponseStatus] = useState('')
 //     const [selectedProduct, setSelectedProduct] = useState([])
@@ -33,6 +35,7 @@ export function Product() {
  function fetchProductDetails() {
     
         setProductList(productll)
+        setProductDetailes(productList)
     }
 
     useEffect(() => {
@@ -66,7 +69,7 @@ export function Product() {
     function handleQuantity(item,e)
     {
     setQuantity(e.target.value)
-        productList.map((product) => {
+    productDetailes.map((product) => {
             if (product.productID === item.productID) {
                     product.productKgs= e.target.value;
                 return product;
@@ -216,7 +219,7 @@ export function Product() {
 
             <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
 
-                {productList.map((item) => (
+                {productDetailes.map((item) => (
                     <div className="col item">
                         <div className="card">
                             <div className="card-body text-center d-flex flex-column align-items-center p-0">
