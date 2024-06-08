@@ -2,19 +2,20 @@ import { createStore as createEasyPeasyStore } from "easy-peasy";
 import { HttpService } from "../services/http/http.service";
 import { BrandModel, brandModel } from "./Models/brand/brand.model";
 import { SignUpModel, signUpModel } from "./Models/signUp/SignUp.model";
+import { ProductModel , productModel } from "./Models/product/Product.model";
 
-import { ProductListsModel } from "./Models/product/product.model";
+// import { ProductModel } from "./Models/product/product.model";
 
 
 export interface AppStoreModel{
 brandModel: BrandModel;
 signUpModel: SignUpModel;
-productListsModel: ProductListsModel;
+productModel: ProductModel;
 }
 export const appStoreModel: AppStoreModel ={
    brandModel : brandModel,
    signUpModel: signUpModel,
-   productListsModel: productListsModel;
+   productModel: productModel,
 }
 
 function createStore(defaultValues?: any){

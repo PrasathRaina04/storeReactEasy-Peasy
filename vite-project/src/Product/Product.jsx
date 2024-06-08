@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 import { useStoreState, useStoreActions } from 'easy-peasy';
-// import { ProductModel } from "./Components/productModel.component";
-
-
-// import { CreateProduct } from "./CreateProduct.page";
+import { CreateProduct } from "./CreateProduct.page";
+import { ProductModel } from "./Components/productModel.component";
 
 export function Product() {
-    const {productDetailes} = useStoreState((state)=>state.ProductListsModel);
-    const {setProductDetailes}= useStoreActions((actions)=> actions.ProductListsModel)
-    const [productList, setProductList] = useState([])
+    const {productDetailes} = useStoreState((state)=>state.productModel);
+    const {setProductDetailes}= useStoreActions((actions)=> actions.productModel)
+    // const [productList, setProductList] = useState([])
 //     // const [responseStatus, setResponseStatus] = useState('')
 //     const [selectedProduct, setSelectedProduct] = useState([])
-//     const [showModel, setShowModel] = useState(false)
+    const [showModel, setShowModel] = useState(false)
 //     const [product, setProduct] = useState({})
-//     const [showCreateProduct, setShowCreateProduct] = useState(false)
+    const [showCreateProduct, setShowCreateProduct] = useState(false)
 //     const [showCart, setShowCart]=  useState(false)
 //     const[productQTY, setProductQTY]=useState(1)
     const[quantity, setQuantity]=useState({})
@@ -34,13 +32,13 @@ export function Product() {
     
  function fetchProductDetails() {
     
-        setProductList(productll)
-        setProductDetailes(productList)
+        // setProductList(productll)
+        setProductDetailes(productll)
     }
 
     useEffect(() => {
         fetchProductDetails();
-    }, [setProductList])
+    }, [setProductDetailes])
     function handleProductKgs(productKgs){
         switch(productKgs){
             case "250 g":
@@ -54,18 +52,20 @@ export function Product() {
 
 //// Edit Button function
 
-    // function handleEditButton(item) {
-    //     // setShowModel(!showModel)
-    //     setProduct(item)
-    // }
+    function handleEditButton(item) {
+
+        setShowModel(!showModel);
+        productDetailes(item)
+
+    }
 
 /// Delete Button function
 
-    // function handleDeleteButton(item)
-    // {
-    //     const temp = productList.filter((product) => product.productName !== item.productName)
-    //     setProductList(temp);
-    // }
+    function handleDeleteButton(item)
+    {
+        const temp = productDetailes.filter((productDetailes) => productDetailes.productNameEng !== item.productNameEng)
+        setProductDetailes(temp);
+    }
     function handleQuantity(item,e)
     {
     setQuantity(e.target.value)
@@ -81,7 +81,7 @@ export function Product() {
     const productll = [
         {
             productID: 1,
-            productName: "Beens",
+            productNameEng: "Beens",
             productNameTn: "பீன்ஸ்",
             productKgs:"250 g",
             productQty:1,
@@ -90,7 +90,7 @@ export function Product() {
         },
         {
             productID: 2,
-            productName: "Butter",
+            productNameEng: "Butter",
             productNameTn: "வெண்ணெய்",
             productKgs:"250 g",
             productQty:1,
@@ -98,7 +98,7 @@ export function Product() {
         },
         {
             productID: 3,
-            productName: "Dried Fruits",
+            productNameEng: "Dried Fruits",
             productNameTn: "உலர்ந்த பழங்கள்",
             productKgs:"250 g",
             productQty:1,
@@ -106,7 +106,7 @@ export function Product() {
         },
         {
             productID: 4,
-            productName: "Pasta",
+            productNameEng: "Pasta",
             productNameTn: "பாஸ்தா",
             productKgs:"250 g",
             productQty:1,
@@ -114,7 +114,7 @@ export function Product() {
         },
         {
             productID: 5,
-            productName: "Biryani Rice",
+            productNameEng: "Biryani Rice",
             productNameTn: "பிரியாணி சாதம்",
             productKgs:"250 g",
             productQty:1,
@@ -122,7 +122,7 @@ export function Product() {
         },
         {
             productID: 6,
-            productName: "Red chilli powder",
+            productNameEng: "Red chilli powder",
             productNameTn: "சிவப்பு மிளகாய் தூள்",
             productKgs:"250 g",
             productQty:1,
@@ -130,7 +130,7 @@ export function Product() {
         },
         {
             productID: 7,
-            productName: "Sambar powder",
+            productNameEng: "Sambar powder",
             productNameTn: "சாம்பார் பொடி",
             productKgs:"250 g",
             productQty:1,
@@ -139,7 +139,7 @@ export function Product() {
         },
         {
             productID: 8,
-            productName: "Pepper",
+            productNameEng: "Pepper",
             productNameTn: "மிளகு",
             productKgs:"250 g",
             productQty:1,
@@ -147,7 +147,7 @@ export function Product() {
         },
         {
             productID: 9,
-            productName: "Ragi flour",
+            productNameEng: "Ragi flour",
             productNameTn: "ராகி மாவு",
             productKgs:"250 g",
             productQty:1,
@@ -155,7 +155,7 @@ export function Product() {
         },
         {
             productID: 10,
-            productName: "Noodles",
+            productNameEng: "Noodles",
             productNameTn: "நூடுல்ஸ்",
             productKgs:"250 g",
             productQty:1,
@@ -163,7 +163,7 @@ export function Product() {
         }, 
         {
             productID: 11,
-            productName: "Tea powder",
+            productNameEng: "Tea powder",
             productNameTn: "தேயிலை தூள்",
             productKgs:"250 g",
             productQty:1,
@@ -171,7 +171,7 @@ export function Product() {
         },
         {
             productID: 12,
-            productName: "Sugar",
+            productNameEng: "Sugar",
             productNameTn: "சர்க்கரை",
             productKgs:"250 g",
             productQty:1,
@@ -179,7 +179,7 @@ export function Product() {
         },
         {
             productID: 13,
-            productName: "Baking powder",
+            productNameEng: "Baking powder",
             productNameTn: "பேக்கிங் பவுடர்",
             productKgs:"250 g",
             productQty:1,
@@ -187,7 +187,7 @@ export function Product() {
         },
         {
             productID: 14,
-            productName: "Almonds",
+            productNameEng: "Almonds",
             productNameTn: "பாதாம்",
             productKgs:"250 g",
             productQty:1,
@@ -195,14 +195,14 @@ export function Product() {
         },
         {
             productID: 15,
-            productName: "Dates",
+            productNameEng: "Dates",
             productNameTn: "பேரிச்சை",
             productKgs:"250 g",
             productQty:1,
             productPrice: 200,
         },
+    
     ]
-
 
     return (
         <div className="container">
@@ -226,7 +226,7 @@ export function Product() {
                                 <div className="row row-cols-1" style={{ margin: "0px", marginRight: "0px", marginBottom: "10px", marginTop: "0px", }}>
                                     <div className="col">
                                      
-                                        <h4 className="card-title">{item.productName}</h4>
+                                        <h4 className="card-title">{item.productNameEng}</h4>
                                         <h4 className="card-title">{item.productNameTn}</h4>
                                     </div>
                                     <br />
@@ -257,13 +257,13 @@ export function Product() {
                     </div>
                 ))}
 
-                {/* {showModel && <ProductModel setShowModel={setShowModel} product={product} setProduct={setProduct} productList={productList} setProductList={setProductList}/>} */}
+                {showModel && <ProductModel setShowModel={setShowModel} />}
 
 
 
 
                 {/* <Cart cartItems={selectedProduct} showCart={showCart} setShowCart={setShowCart}/> */}
-                {/* {   showCreateProduct &&       <div className="modal fade show" id="modal-1" role="dialog" tabindex="-1" style={{ display:"block", }}>
+                {   showCreateProduct &&       <div className="modal fade show" id="modal-1" role="dialog" tabindex="-1" style={{ display:"block", }}>
     <div className="modal-dialog" role="document">
         <div className="modal-content">
             <div className="modal-header">
@@ -276,12 +276,12 @@ export function Product() {
                 data-bs-dismiss="modal" />
                    </div>
                  <div className="modal-body">
-                <CreateProduct quantity={quantity} productList={productList} setProductList={setProductList} setShowCreateProduct={setShowCreateProduct} />
+               <CreateProduct setShowCreateProduct={setShowCreateProduct}/>
                 </div>
 
                 </div>
                 </div>
-                </div>} */}
+                </div>}
 
       
 

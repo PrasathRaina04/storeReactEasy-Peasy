@@ -33,7 +33,7 @@ export interface SignUp{
             pincode?:number,
             password?:string,
 }
-export interface ProductLists{
+export interface Product{
     productID?: number,
     productNameEng?: string,
     productNameTn?: string,
