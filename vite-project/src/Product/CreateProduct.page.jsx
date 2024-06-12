@@ -8,12 +8,12 @@ export function CreateProduct(props) {
   const navigate = useNavigate();
 
   const [product, setProduct] = useState({
+    productID: "",
     productNameEng: "",
     productNameTn: "",
-    productDescription: "",
-    productDescriptionTn: "",
-    cName: "",
-    bName: "",
+    productKgs:"",
+    productQty:"",
+    productPrice: "",
   });
   // const [responseStatus, setResponseStatus] = useState("");
  
