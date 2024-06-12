@@ -1,12 +1,12 @@
-import { Action, Thunk, action, thunk } from "easy-peasy";
+import { Action,  action } from "easy-peasy";
 import { Product } from "../../interface";
 
 interface ProductState{     // variables
-    productDetailes: Product; 
+    productDetailes: Array<Product>; 
 }
 
 interface ProductActions{       // value setter  => function => action
-    setProductDetailes: Action<this, Product>;
+    setProductDetailes: Action<this, Array<Product>>;
 }
 
 
@@ -15,17 +15,26 @@ export interface ProductModel  extends ProductState , ProductActions{
 }
 
 export const productModel: ProductModel={
-    productDetailes:[{
-        productName: "",
-        productNameTamil: "",
-        productQuantity: 0,
-        productSellingPrice: 0,
-        productCostPrice: 0,
-        productBrandName: "",
-        productCategoryName: ""
-    }],
+    productDetailes:[],
     
     setProductDetailes: action((state, productDetailes) => {
         state.productDetailes = productDetailes;
     }),
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
