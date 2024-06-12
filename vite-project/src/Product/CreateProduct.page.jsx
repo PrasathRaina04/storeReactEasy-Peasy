@@ -7,14 +7,14 @@ export function CreateProduct(props) {
   const {setProductDetailes}= useStoreActions((actions)=> actions.productModel)
   const navigate = useNavigate();
 
-  const [product, setProduct] = useState([{
+  const [product, setProduct] = useState({
     productID: productDetailes.length+1,
     productNameEng: "",
     productNameTn: "",
     productKgs:"250 g",
     productQty:1,
     productPrice: "",
-  }]);
+  });
   // const [responseStatus, setResponseStatus] = useState("");
  
   function handleProductInput(inputType, e) {
