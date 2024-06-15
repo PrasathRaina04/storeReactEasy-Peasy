@@ -9,7 +9,8 @@ import React, { Suspense } from "react";
 import { AppProviders } from "./providers";
 import Applayout from "./Components/applayout/Applayout.component";
 import { Product } from './Product/Product'
-
+import Home from './Home.page'
+import { Brand } from './Brand/Brand.page'
 function App() {
 
 
@@ -18,6 +19,9 @@ function App() {
     <Applayout>
       <Suspense >
         <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/brand" element={<Brand />} />
+
           <Route path="/signup" element={<Login />} />
           <Route path="/product" element={<Product />} />
 

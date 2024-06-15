@@ -1,9 +1,10 @@
 
 
 export interface Brand {
-    id?:number;
+    brandID?:number;
     brandName?:string;
-    brandNameTamil?:string;
+    brandNameTn?:string;
+    brandListOfProduct?:string
 }
 
 export interface Category
