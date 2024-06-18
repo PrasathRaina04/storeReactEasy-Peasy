@@ -48,7 +48,7 @@ export function CreateProduct(props) {
     //   .catch((err) => {
     //     setResponseStatus(err.response.data);
     //   });
-    setProductDetailes([...productDetailes,product])
+    setProductDetailes({...productDetailes,product})
 props.setShowCreateProduct(false)
   }
 
@@ -94,4 +94,3 @@ props.setShowCreateProduct(false)
     </>
   );
 }
-

@@ -24,13 +24,14 @@ function handleProductName(e,inputType)
 }
  function UpdateProductDetail(){
 
-    productDetailes.map((productDetailes)=>
+    props.productList.map((productDetailes)=>
     {
-       
+        if(productDetailes.productID===productDetailes.productID) 
+        { 
             productDetailes.productName= productDetailes.productName; 
             productDetailes.productNameTn=productDetailes.productNameTn;
             return productDetailes; 
-        
+        }
     }
 )
 
