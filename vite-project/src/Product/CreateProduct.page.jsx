@@ -39,15 +39,7 @@ export function CreateProduct(props) {
     }
   }
   async function handleCreate() {
-    // await axios
-    //   .post("http://localhost:8080/product/createProduct", product)
-    //   .then((res) => {
-    //     setResponseStatus("success");
-    //     navigate("/Product");
-    //   })
-    //   .catch((err) => {
-    //     setResponseStatus(err.response.data);
-    //   });
+   
     setProductDetailes([...productDetailes,product])
 props.setShowCreateProduct(false)
   }
