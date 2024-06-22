@@ -16,13 +16,13 @@ export interface Category
 export interface Product
 {
     id?:number,
-   productName:string,
-   productNameTamil:string,
-   productQuantity:number,
-   productSellingPrice:number,
-   productCostPrice:number,
-   productBrandName:string,
-   productCategoryName:string
+    productNameEng?:string,
+   productNameTamil?:string,
+   productQuantity?:number,
+   productSellingPrice?:number,
+   productCostPrice?:number,
+   productBrandName?:string,
+   productCategoryName?:string
 }
 
 export interface SignUp{

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import { useStoreState, useStoreActions } from 'easy-peasy';
 export function CreateProduct(props) {
   const {productDetailes} = useStoreState((state)=>state.productModel);
@@ -48,7 +48,7 @@ export function CreateProduct(props) {
     //   .catch((err) => {
     //     setResponseStatus(err.response.data);
     //   });
-    setProductDetailes({...productDetailes,product})
+    setProductDetailes([...productDetailes,product])
 props.setShowCreateProduct(false)
   }
 

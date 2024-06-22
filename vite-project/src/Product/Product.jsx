@@ -4,13 +4,14 @@ import { CreateProduct } from "./CreateProduct.page";
 import { ProductModel } from "./Components/productModel.component";
 
 export function Product() {
-    const {productDetailes} = useStoreState((state)=>state.productModel);
-    const {setProductDetailes}= useStoreActions((actions)=> actions.productModel)
+    const {productDetailes, storeProduct} = useStoreState((state)=>state.productModel);
+    const {setProductDetailes, setStoreProduct}= useStoreActions((actions)=> actions.productModel)
+    
     // const [productList, setProductList] = useState([])
 //     // const [responseStatus, setResponseStatus] = useState('')
 //     const [selectedProduct, setSelectedProduct] = useState([])
     const [showModel, setShowModel] = useState(false)
-//     const [product, setProduct] = useState({})
+    const [product, setProduct] = useState({})
     const [showCreateProduct, setShowCreateProduct] = useState(false)
 //     const [showCart, setShowCart]=  useState(false)
 //     const[productQTY, setProductQTY]=useState(1)
@@ -55,8 +56,7 @@ export function Product() {
     function handleEditButton(item) {
 
         setShowModel(!showModel);
-        productDetailes(item)
-
+        setStoreProduct(item)
     }
 
 /// Delete Button function

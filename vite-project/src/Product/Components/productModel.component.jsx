@@ -4,8 +4,8 @@ import { useStoreState, useStoreActions } from 'easy-peasy';
 
 export function ProductModel(props)
 {
-    const {productDetailes} = useStoreState((state)=>state.productModel);
-    const {setProductDetailes}= useStoreActions((actions)=> actions.productModel)
+    const {productDetailes, storeProduct} = useStoreState((state)=>state.productModel);
+    const {setProductDetailes, setStoreProduct}= useStoreActions((actions)=> actions.productModel)
 
     const [responseStatus, setResponseStatus] = useState('')
 
@@ -26,10 +26,10 @@ function handleProductName(e,inputType)
 
     props.productList.map((productDetailes)=>
     {
-        if(productDetailes.productID===productDetailes.productID) 
+        if(storeProduct.productID===productDetailes.productID) 
         { 
-            productDetailes.productName= productDetailes.productName; 
-            productDetailes.productNameTn=productDetailes.productNameTn;
+            storeProduct.productName= productDetailes.productName; 
+            storeProduct.productNameTn=productDetailes.productNameTn;
             return productDetailes; 
         }
     }
@@ -57,10 +57,10 @@ function handleProductName(e,inputType)
                 <div className="row row-cols-1">
                     <div className="col">
                         <label className="form-label" style={{ marginRight:"80px", }}>Product Name</label>
-                        <input type="text" onChange={(e)=>handleProductName(e,"productName")} value={productDetailes.productNameEng}/></div>
+                        <input type="text" onChange={(e)=>handleProductName(e,"productName")} value={storeProduct.productNameEng}/></div>
                     <div className="col">
                         <label className="form-label" style={{ marginRight:"36px", }}>Product Name Tamil</label>
-                    <input type="text" onChange={(e)=>handleProductName(e,"productNameTn")} value={productDetailes.productNameTn} style={{ marginLeft:"4px", }} /></div>
+                    <input type="text" onChange={(e)=>handleProductName(e,"productNameTn")} value={storeProduct.productNameTn} style={{ marginLeft:"4px", }} /></div>
                     {responseStatus === "failed" && <div className="invalid-feedback">
             Sorry, Product update failed. Try again?
           </div>}
