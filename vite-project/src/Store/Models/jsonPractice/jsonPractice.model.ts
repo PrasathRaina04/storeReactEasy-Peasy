@@ -25,6 +25,8 @@ export const jsonModel: JsonModel={
         state.jsonPractice = jsonPractice;
     }),
     setJsonPracticeList: action((state, jsonPracticeList) => {
+        console.log("from model");
+        console.log(jsonPracticeList);
         state.jsonPracticeList = jsonPracticeList;
     }),
 }
