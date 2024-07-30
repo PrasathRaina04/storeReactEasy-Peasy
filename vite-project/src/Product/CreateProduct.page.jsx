@@ -28,14 +28,7 @@ export function CreateProduct(props) {
       case "productPrice":
         setProduct({ ...product, productPrice: e.target.value });
         break;
-      // case "cName":
-      //   setResponseStatus("")
-      //   setProduct({ ...product, cName: e.target.value });
-      //   break;
-      // case "bName":
-      //   setResponseStatus("")
-      //   setProduct({ ...product, bName: e.target.value });
-      //   break;
+      
     }
   }
   async function handleCreate() {
