@@ -26,7 +26,6 @@ function App() {
         <Route path="/json" element={<JsonPractice />} />
           <Route path="/signup" element={<Login />} />
           <Route path="/product" element={<Product />} />
-
         </Routes>
       </Suspense>
     </Applayout>

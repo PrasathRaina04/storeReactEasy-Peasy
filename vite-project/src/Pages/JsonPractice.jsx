@@ -1,21 +1,23 @@
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import { useState, useEffect } from "react"
 export function JsonPractice(){
-    const {jsonPracticeList} = useStoreState((state)=>state.jsonModel);
+    const {jsonPracticeList} = useStoreState((state)=>state.jsonModel)
+    const {brandList} = useStoreState((state)=>state.brandModel)
     const {setJsonPracticeList}= useStoreActions((actions)=> actions.jsonModel)
 const[userdata, setUserdata]=useState([])
 
 
     useEffect( () => {
       fetchData();
-    },[jsonPracticeList]);
+    },[setUserdata]);
     async function fetchData() {
+      console.log("brand ")
+      console.log(brandList)
       const response = await fetch("https://jsonplaceholder.typicode.com/users");
       // axios.get("https://jsonplaceholder.typicode.com/users").then((data)=>{
       // console.log(data.data);
       // })
       const res = await response.json();
-      console.log(res);
     setUserdata(res);
     setJsonPracticeList(res);
     }

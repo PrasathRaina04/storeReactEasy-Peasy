@@ -1,36 +1,3 @@
-import { createStore as createEasyPeasyStore } from "easy-peasy";
-import { HttpService } from "../services/http/http.service";
-import { BrandModel, brandModel } from "./Models/brand/brand.model";
-import { SignUpModel, signUpModel } from "./Models/signUp/SignUp.model";
-import { ProductModel, productModel } from "./Models/product/Product.model";
-import { JsonModel, jsonModel } from "./Models/jsonPractice/jsonPractice.model";
-
-
-
-export interface AppStoreModel{
-    productModel: ProductModel,
-brandModel: BrandModel;
-signUpModel: SignUpModel;
-jsonModel: JsonModel;
-
-}
-export const appStoreModel: AppStoreModel ={
-    productModel: productModel,
-   brandModel : brandModel,
-   signUpModel: signUpModel,
-   jsonModel:jsonModel,
-
-}
-
-function createStore(defaultValues?: any){
-    return createEasyPeasyStore(appStoreModel,{
-        injections:{
-            httpService: new HttpService(),
-        },
-        initialState:{
-            ...defaultValues,
-        },
-    });
-}
-
-export const store =createStore();
+import {createStore, persist} from 'easy-peasy';
+import { appStoreModel } from './Models';
+export const store =createStore(persist (appStoreModel));

@@ -18,7 +18,7 @@ function fetchBrandtDetails(){
 
     useEffect(() => {
         fetchBrandtDetails();
-console.log("From Brand page")
+        console.log("From Brand page");
         console.log(jsonPracticeList);
     }, [setBrandList])
 

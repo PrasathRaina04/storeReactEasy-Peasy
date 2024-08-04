@@ -6,7 +6,7 @@ import { ProductModel } from "./Components/productModel.component";
 export function Product() {
     const {productDetailes, storeProduct} = useStoreState((state)=>state.productModel);
     const {setProductDetailes, setStoreProduct}= useStoreActions((actions)=> actions.productModel)
-    
+    const {jsonPracticeList} = useStoreState((state)=>state.jsonModel)
     // const [productList, setProductList] = useState([])
 //     // const [responseStatus, setResponseStatus] = useState('')
 //     const [selectedProduct, setSelectedProduct] = useState([])
@@ -32,7 +32,7 @@ export function Product() {
 //     }
     
  function fetchProductDetails() {
-    
+    console.log(JSON.stringify(jsonPracticeList))
         // setProductList(productll)
         setProductDetailes(productll)
     }
