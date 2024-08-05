@@ -56,7 +56,7 @@ export function Product() {
     function handleEditButton(item) {
 
         setShowModel(!showModel);
-        setStoreProduct(item)
+        setProduct(item)
     }
 
 /// Delete Button function
@@ -257,7 +257,7 @@ export function Product() {
                     </div>
                 ))}
 
-                {showModel && <ProductModel setShowModel={setShowModel} />}
+                {showModel && <ProductModel setShowModel={setShowModel} product={product} setProduct={setProduct} productDetailes={productDetailes} setProductDetailes={setProductDetailes} />}
 
 
 
@@ -276,7 +276,7 @@ export function Product() {
                 data-bs-dismiss="modal" />
                    </div>
                  <div className="modal-body">
-               <CreateProduct setShowCreateProduct={setShowCreateProduct}/>
+               <CreateProduct setShowCreateProduct={setShowCreateProduct} product={product} setProduct={setProduct} productDetailes={setProductDetailes}/>
                 </div>
 
                 </div>
