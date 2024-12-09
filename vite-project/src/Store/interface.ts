@@ -34,3 +34,10 @@ export interface SignUp{
             pincode?:number,
             password?:string,
 }
+export interface JsonPractice{
+    id?:number,
+    name?:string,
+    username?:string,
+    email?:string,
+
+}

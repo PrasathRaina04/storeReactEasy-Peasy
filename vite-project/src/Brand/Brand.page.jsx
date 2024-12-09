@@ -6,6 +6,7 @@ export function Brand()
 {
     const {brandList} = useStoreState((state)=>state.brandModel)
     const {setBrandList} = useStoreActions((actions)=>actions.brandModel)
+    const {jsonPracticeList} = useStoreState((state)=>state.jsonModel);
 
     const[showCreateModel, setShowCreateModel] = useState(false)
     const[showEditModel, setShowEditModel] = useState(false)
@@ -17,6 +18,8 @@ function fetchBrandtDetails(){
 
     useEffect(() => {
         fetchBrandtDetails();
+        console.log("From Brand page");
+        console.log(jsonPracticeList);
     }, [setBrandList])
 
 
