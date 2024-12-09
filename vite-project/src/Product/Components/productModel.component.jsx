@@ -1,13 +1,12 @@
 import {  useState } from "react";
 import axios from "axios";
-import { useStoreState, useStoreActions } from 'easy-peasy';
+
 
 export function ProductModel(props)
 {
-    const {productDetailes, storeProduct} = useStoreState((state)=>state.productModel);
-    const {setProductDetailes, setStoreProduct}= useStoreActions((actions)=> actions.productModel)
+   
 
-    const [responseStatus, setResponseStatus] = useState('')
+    // const [responseStatus, setResponseStatus] = useState('')
 
 
 function handleProductName(e,inputType)
@@ -15,25 +14,25 @@ function handleProductName(e,inputType)
 { 
     if(inputType === "productNameTn")
     {
-        setProductDetailes({...productDetailes,productNameTn:e.target.value})
+        props.setProduct({...props.product,productNameTn:e.target.value})
     }
     else
     {
-        setProductDetailes({...productDetailes,productNameEng:e.target.value})
-    }
+        props.setProduct({...props.product,productNameEng:e.target.value}) 
+       }
 }
  function UpdateProductDetail(){
 
-    props.productList.map((productDetailes)=>
-    {
-        if(storeProduct.productID===productDetailes.productID) 
-        { 
-            storeProduct.productName= productDetailes.productName; 
-            storeProduct.productNameTn=productDetailes.productNameTn;
-            return productDetailes; 
+    props.productDetailes.map((product)=>
+        {
+            if(product.productID===props.product.productID) 
+            { 
+                product.productNameEng= props.product.productNameEng; 
+                product.productNameTn= props.product.productNameTn;
+                return product; 
+            }
         }
-    }
-)
+    )
 
     props.setShowModel(false)
 
@@ -57,13 +56,13 @@ function handleProductName(e,inputType)
                 <div className="row row-cols-1">
                     <div className="col">
                         <label className="form-label" style={{ marginRight:"80px", }}>Product Name</label>
-                        <input type="text" onChange={(e)=>handleProductName(e,"productName")} value={storeProduct.productNameEng}/></div>
+                        <input type="text" onChange={(e)=>handleProductName(e,"productNameEng")} value={props.product.productNameEng}/></div>
                     <div className="col">
                         <label className="form-label" style={{ marginRight:"36px", }}>Product Name Tamil</label>
-                    <input type="text" onChange={(e)=>handleProductName(e,"productNameTn")} value={storeProduct.productNameTn} style={{ marginLeft:"4px", }} /></div>
-                    {responseStatus === "failed" && <div className="invalid-feedback">
+                    <input type="text" onChange={(e)=>handleProductName(e,"productNameTn")} value={props.product.productNameTn} style={{ marginLeft:"4px", }} /></div>
+                    {/* {responseStatus === "failed" && <div className="invalid-feedback">
             Sorry, Product update failed. Try again?
-          </div>}
+          </div>} */}
                 </div>
             </div>
             <div className="modal-footer">

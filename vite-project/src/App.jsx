@@ -11,6 +11,8 @@ import Applayout from "./Components/applayout/Applayout.component";
 import { Product } from './Product/Product'
 import Home from './Home.page'
 import { Brand } from './Brand/Brand.page'
+import { JsonPractice } from './Pages/JsonPractice'
+
 function App() {
 
 
@@ -21,7 +23,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/brand" element={<Brand />} />
-
+        <Route path="/json" element={<JsonPractice />} />
           <Route path="/signup" element={<Login />} />
           <Route path="/product" element={<Product />} />
 
